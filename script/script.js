@@ -23,11 +23,7 @@
 
 'use strict';
 
-let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', "")
-let lastFilms = prompt('Один из последних просмотренных фильмов?', "")
-let gradeFilms = prompt('На сколько оцените его?', "")
-let lastFilms1 = prompt('Один из последних просмотренных фильмов?', "")
-let gradeFilms1 = prompt('На сколько оцените его?', "")
+let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', "");
 let personalMovieDB = {
     'count': numberOfFilms,
     'movies': {},
@@ -35,6 +31,33 @@ let personalMovieDB = {
     'genres': [],
     'privat': false,
 };
-personalMovieDB.movies[lastFilms] = gradeFilms
-personalMovieDB.movies[lastFilms1] = gradeFilms1
+for (let i = 0; i < 2; i++) {
+    let a = prompt('Один из последних просмотренных фильмов?', "");
+    let b = prompt('На сколько оцените его?', "");
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) { 
+        console.log('Done')
+        personalMovieDB.movies[a] = b;
+
+} else {
+    console.log('Error')
+    i--
+}
+}
+
+if (personalMovieDB.count < 10) {
+ console.log('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30 ) {
+    console.log("Вы классический зритель");
+} 
+else if (personalMovieDB.count >= 30) {
+    console.log("Вы киноман");
+}else {
+    console.log("Произошла ошибка");
+}
+
 console.log (personalMovieDB)
+
+
+
+
+
